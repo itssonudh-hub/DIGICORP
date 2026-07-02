@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — DIGICORP</title>
+<meta name="description" content="Digital marketing insights, tips, and strategy from the DIGICORP team — SEO, social media, Google Ads, and more.">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 50px; }
+  .blog-card { background: var(--white); border: 1px solid rgba(42,29,20,0.08); border-radius: 14px; overflow: hidden; transition: all 0.25s ease; }
+  .blog-card:hover { transform: translateY(-5px); box-shadow: 0 14px 28px rgba(42,29,20,0.09); }
+  .blog-thumb { background: var(--cream-soft); height: 180px; display: flex; align-items: center; justify-content: center; }
+  .blog-thumb span { font-family: var(--font-heading); font-size: 40px; color: var(--brown-muted); }
+  .blog-body { padding: 24px; }
+  .blog-meta { display: flex; gap: 12px; align-items: center; margin-bottom: 12px; }
+  .blog-tag { font-size: 11px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; color: var(--green); background: rgba(47,82,51,0.1); padding: 3px 8px; border-radius: 4px; }
+  .blog-date { font-size: 12px; color: var(--brown-muted); }
+  .blog-body h3 { font-family: var(--font-heading); font-size: 18px; color: var(--brown-deep); margin-bottom: 10px; line-height: 1.35; }
+  .blog-body p { font-size: 14px; color: var(--brown-mid); margin-bottom: 16px; }
+  .blog-read { font-size: 13px; font-weight: bold; color: var(--green); }
+  .blog-read:hover { text-decoration: underline; }
+  .coming-soon { text-align: center; padding: 80px 20px; }
+  .coming-soon h3 { font-family: var(--font-heading); font-size: 24px; color: var(--brown-deep); margin-bottom: 12px; }
+  .coming-soon p { font-size: 15px; color: var(--brown-mid); max-width: 460px; margin: 0 auto; }
+  @media (max-width: 980px) { .blog-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { .blog-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<header class="navbar" id="navbar">
+  <div class="container navbar-inner">
+    <a href="index.html" class="logo">DIGICORP</a>
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <div class="dropdown">
+        <a href="services.html" class="dropdown-toggle">Services <span class="caret">▾</span></a>
+        <div class="dropdown-menu">
+          <a href="seo.html">SEO</a>
+          <a href="google-ads.html">Google Ads</a>
+          <a href="social-media.html">Social Media Marketing</a>
+          <a href="web-design.html">Web Design</a>
+          <a href="video-editing.html">Video Editing</a>
+          <a href="content-marketing.html">Content Marketing</a>
+          <a href="graphics-design.html">Graphics Design</a>
+          <a href="branding.html">Branding Strategy</a>
+        </div>
+      </div>
+      <a href="about.html">About</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="blog.html" class="active">Blog</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <a href="contact.html" class="btn-cta">Get Quote</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero" style="padding: 90px 0 70px;">
+  <div class="hero-rings" aria-hidden="true">
+    <span class="ring ring-1"></span>
+    <span class="ring ring-2"></span>
+    <span class="ring ring-3"></span>
+  </div>
+  <div class="container hero-inner">
+    <p class="eyebrow">DIGICORP Blog</p>
+    <h1 style="font-size: 44px;">Digital marketing, explained plainly.</h1>
+    <p class="hero-sub">No jargon, no fluff — practical insights on SEO, social media, Google Ads, and building a brand that grows.</p>
+  </div>
+</section>
+
+<!-- ===== BLOG GRID ===== -->
+<section style="padding: 20px 0 110px;">
+  <div class="container">
+
+    <div class="blog-grid">
+
+      <div class="blog-card">
+        <div class="blog-thumb"><span>📈</span></div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <span class="blog-tag">SEO</span>
+            <span class="blog-date">June 2026</span>
+          </div>
+          <h3>Why your Google ranking dropped — and how to fix it</h3>
+          <p>Three common reasons small businesses lose rankings and the exact steps to recover without spending on ads.</p>
+          <a href="#" class="blog-read">Read more →</a>
+        </div>
+      </div>
+
+      <div class="blog-card">
+        <div class="blog-thumb"><span>📱</span></div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <span class="blog-tag">Social Media</span>
+            <span class="blog-date">June 2026</span>
+          </div>
+          <h3>How we grew an Instagram account 1355% in 10 months — organically</h3>
+          <p>The exact content strategy, posting frequency, and format breakdown we used for ASCI. No paid promotions, no bots.</p>
+          <a href="#" class="blog-read">Read more →</a>
+        </div>
+      </div>
+
+      <div class="blog-card">
+        <div class="blog-thumb"><span>🎯</span></div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <span class="blog-tag">Google Ads</span>
+            <span class="blog-date">May 2026</span>
+          </div>
+          <h3>Why most small business Google Ads fail — and what to do instead</h3>
+          <p>The difference between a campaign that burns budget and one that actually brings customers through the door.</p>
+          <a href="#" class="blog-read">Read more →</a>
+        </div>
+      </div>
+
+      <div class="blog-card">
+        <div class="blog-thumb"><span>🏋️</span></div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <span class="blog-tag">Local SEO</span>
+            <span class="blog-date">May 2026</span>
+          </div>
+          <h3>How a local gym can beat big competitors on Google Maps</h3>
+          <p>Local SEO is a level playing field. Here is exactly how a small gym in Hyderabad can outrank a 150-branch chain for local searches.</p>
+          <a href="#" class="blog-read">Read more →</a>
+        </div>
+      </div>
+
+      <div class="blog-card">
+        <div class="blog-thumb"><span>🎬</span></div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <span class="blog-tag">Content</span>
+            <span class="blog-date">April 2026</span>
+          </div>
+          <h3>Reels vs static posts — what actually gets more reach in 2026</h3>
+          <p>Data from real accounts, not guesses. The format breakdown that actually moves the algorithm in India right now.</p>
+          <a href="#" class="blog-read">Read more →</a>
+        </div>
+      </div>
+
+      <div class="blog-card">
+        <div class="blog-thumb"><span>🏷️</span></div>
+        <div class="blog-body">
+          <div class="blog-meta">
+            <span class="blog-tag">Branding</span>
+            <span class="blog-date">April 2026</span>
+          </div>
+          <h3>Why most small businesses have a logo but not a brand</h3>
+          <p>The difference between having a visual identity and actually being remembered by people who see your content.</p>
+          <a href="#" class="blog-read">Read more →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA BAND ===== -->
+<section class="cta-band">
+  <div class="container cta-band-inner">
+    <h2>Want us to grow your business the same way?</h2>
+    <p>No obligation — just a straight conversation about where your business stands.</p>
+    <a href="contact.html" class="btn-primary">Get a free consultation</a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-col">
+      <p class="logo footer-logo">DIGICORP</p>
+      <p class="footer-desc">A full-service digital marketing agency helping businesses grow with honest strategy and real execution.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="seo.html">SEO</a>
+      <a href="google-ads.html">Google Ads</a>
+      <a href="social-media.html">Social Media</a>
+      <a href="web-design.html">Web Design</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="about.html">About</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="mailto:info@digicorp.com">info@digicorp.com</a>
+      <a href="tel:+919693480510">+91 96934 80510</a>
+      <p class="footer-desc">Hyderabad, India</p>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>© 2026 DIGICORP. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
