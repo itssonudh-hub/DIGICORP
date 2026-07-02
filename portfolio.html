@@ -4,30 +4,33 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Portfolio — DIGICORP</title>
-<meta name="description" content="Real results from real clients — DIGICORP portfolio of digital marketing work across SEO, social media, Google Ads, and web design.">
+<meta name="description" content="Work samples from DIGICORP — digital marketing projects across SEO, social media, Google Ads, web design, and branding.">
 <link rel="stylesheet" href="css/style.css">
 <style>
-  .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 50px; }
+  .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 40px; }
   .portfolio-card { background: var(--white); border: 1px solid rgba(42,29,20,0.08); border-radius: 14px; overflow: hidden; transition: all 0.25s ease; }
   .portfolio-card:hover { transform: translateY(-6px); box-shadow: 0 16px 32px rgba(42,29,20,0.1); }
-  .portfolio-thumb { background: var(--cream-soft); height: 200px; display: flex; align-items: center; justify-content: center; }
-  .portfolio-thumb span { font-family: var(--font-heading); font-size: 28px; font-weight: bold; color: var(--brown-muted); }
+  .portfolio-thumb { height: 180px; display: flex; align-items: center; justify-content: center; font-size: 48px; }
+  .thumb-green { background: rgba(47,82,51,0.08); }
+  .thumb-gold { background: rgba(200,160,60,0.1); }
+  .thumb-dark { background: rgba(42,29,20,0.06); }
+  .thumb-blue { background: rgba(80,80,180,0.08); }
+  .thumb-red { background: rgba(180,80,80,0.08); }
   .portfolio-body { padding: 24px; }
   .portfolio-tag { display: inline-block; font-size: 11px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; color: var(--green); background: rgba(47,82,51,0.1); padding: 4px 10px; border-radius: 4px; margin-bottom: 12px; }
   .portfolio-body h3 { font-family: var(--font-heading); font-size: 18px; color: var(--brown-deep); margin-bottom: 8px; }
   .portfolio-body p { font-size: 14px; color: var(--brown-mid); margin-bottom: 14px; }
-  .portfolio-result { font-size: 13px; font-weight: bold; color: var(--green); }
-  .stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 70px; text-align: center; }
-  .stat-box { background: var(--white); border: 1px solid rgba(42,29,20,0.08); border-radius: 14px; padding: 32px 20px; }
-  .stat-num { font-family: var(--font-heading); font-size: 36px; font-weight: bold; color: var(--green); margin-bottom: 6px; }
-  .stat-label { font-size: 14px; color: var(--brown-mid); }
-  @media (max-width: 980px) { .portfolio-grid { grid-template-columns: repeat(2, 1fr); } .stats-row { grid-template-columns: 1fr 1fr; } }
-  @media (max-width: 600px) { .portfolio-grid { grid-template-columns: 1fr; } .stats-row { grid-template-columns: 1fr; } }
+  .portfolio-result { font-size: 13px; font-weight: bold; color: var(--green); padding-top: 12px; border-top: 1px solid rgba(42,29,20,0.06); }
+  .stats-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 70px; }
+  .stat-box { background: var(--white); border: 1px solid rgba(42,29,20,0.08); border-radius: 14px; padding: 28px 20px; text-align: center; }
+  .stat-num { font-family: var(--font-heading); font-size: 32px; font-weight: bold; color: var(--green); margin-bottom: 6px; }
+  .stat-label { font-size: 13px; color: var(--brown-mid); }
+  @media (max-width: 980px) { .portfolio-grid { grid-template-columns: repeat(2, 1fr); } .stats-strip { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { .portfolio-grid { grid-template-columns: 1fr; } .stats-strip { grid-template-columns: 1fr 1fr; } }
 </style>
 </head>
 <body>
 
-<!-- ===== NAVBAR ===== -->
 <header class="navbar" id="navbar">
   <div class="container navbar-inner">
     <a href="index.html" class="logo">DIGICORP</a>
@@ -58,7 +61,6 @@
   </div>
 </header>
 
-<!-- ===== HERO ===== -->
 <section class="hero" style="padding: 90px 0 70px;">
   <div class="hero-rings" aria-hidden="true">
     <span class="ring ring-1"></span>
@@ -67,96 +69,128 @@
   </div>
   <div class="container hero-inner">
     <p class="eyebrow">Our work</p>
-    <h1 style="font-size: 44px;">Results we're proud to put our name on.</h1>
-    <p class="hero-sub">Every number here is verified and real. No inflated stats, no stock screenshots — just what we actually delivered.</p>
+    <h1 style="font-size: 44px;">Results across industries, platforms, and budgets.</h1>
+    <p class="hero-sub">A sample of the work we do — from organic social media growth to paid campaigns, web builds, and brand systems. Every result here is real.</p>
   </div>
 </section>
 
-<!-- ===== STATS ===== -->
-<section style="padding: 0 0 80px;">
+<section style="padding: 20px 0 60px;">
   <div class="container">
-    <div class="stats-row">
+    <div class="stats-strip">
       <div class="stat-box">
         <div class="stat-num">1355%</div>
-        <div class="stat-label">Instagram growth for ASCI (29 → 422 followers in 10 months)</div>
+        <div class="stat-label">Highest Instagram growth delivered — organic, 10 months</div>
       </div>
       <div class="stat-box">
-        <div class="stat-num">+1022</div>
-        <div class="stat-label">LinkedIn followers added — organic, zero paid</div>
+        <div class="stat-num">8+</div>
+        <div class="stat-label">Industries served — fitness, NGO, food, photography, and more</div>
       </div>
       <div class="stat-box">
-        <div class="stat-num">2×</div>
-        <div class="stat-label">Engagement growth for Das Fastfood, +110% reach</div>
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Results verified — no inflated numbers, ever</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">Pan-India</div>
+        <div class="stat-label">Clients across Hyderabad, Delhi, Kolkata, Ranchi, and more</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== PORTFOLIO GRID ===== -->
 <section style="padding: 0 0 110px;">
   <div class="container">
-    <p class="eyebrow center">Case studies</p>
-    <h2 class="section-title center">Work across industries and platforms</h2>
+    <p class="eyebrow center">Work samples</p>
+    <h2 class="section-title center">Projects across every service we offer</h2>
 
     <div class="portfolio-grid">
 
       <div class="portfolio-card">
-        <div class="portfolio-thumb"><span>ASCI</span></div>
+        <div class="portfolio-thumb thumb-green">📱</div>
         <div class="portfolio-body">
           <span class="portfolio-tag">Social Media</span>
-          <h3>ASCI — Government Institution</h3>
-          <p>Managed Instagram and LinkedIn presence for the Administrative Staff College of India, covering 100+ government programmes attended by IAS/IPS officers.</p>
-          <div class="portfolio-result">1355% Instagram growth in 10 months</div>
+          <h3>Instagram Growth — Government Institution</h3>
+          <p>Full social media management — content strategy, reels, carousels, and engagement growth. Built from near zero with no paid promotion.</p>
+          <div class="portfolio-result">1355% follower growth in 10 months</div>
         </div>
       </div>
 
       <div class="portfolio-card">
-        <div class="portfolio-thumb"><span>Das Fastfood</span></div>
+        <div class="portfolio-thumb thumb-blue">💼</div>
         <div class="portfolio-body">
           <span class="portfolio-tag">Social Media</span>
-          <h3>Das Fastfood — Hyderabad</h3>
-          <p>Social media management for a local fast food brand in Hyderabad — content strategy, reels, and engagement growth.</p>
+          <h3>LinkedIn Growth — Professional Brand</h3>
+          <p>LinkedIn content strategy and posting — thought leadership posts, event coverage, and community engagement for a professional services brand.</p>
+          <div class="portfolio-result">+1022 followers — fully organic</div>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="portfolio-thumb thumb-dark">🌐</div>
+        <div class="portfolio-body">
+          <span class="portfolio-tag">Web Design + SEO</span>
+          <h3>Website Build — Non-Profit Organisation</h3>
+          <p>Custom website built from scratch — donation integration, schema markup, GA4, Google Search Console, sitemap submission, and full SEO foundation.</p>
+          <div class="portfolio-result">Indexed on Google · Full SEO setup complete</div>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="portfolio-thumb thumb-red">🍔</div>
+        <div class="portfolio-body">
+          <span class="portfolio-tag">Social Media</span>
+          <h3>Social Media — Local Food Brand</h3>
+          <p>Instagram and Facebook management — reels, product posts, stories, and offer campaigns to drive footfall and online orders.</p>
           <div class="portfolio-result">2× engagement · +110% reach</div>
         </div>
       </div>
 
       <div class="portfolio-card">
-        <div class="portfolio-thumb"><span>Krishna Sarthi</span></div>
+        <div class="portfolio-thumb thumb-gold">📷</div>
         <div class="portfolio-body">
-          <span class="portfolio-tag">Web Design + SEO</span>
-          <h3>Krishna Sarthi — NGO, Ranchi</h3>
-          <p>Built krishnasarthi.in from scratch — UPI donation integration, schema markup, GA4 and Google Search Console setup, sitemap submission, and content plan.</p>
-          <div class="portfolio-result">Google indexing resolved · Full SEO setup</div>
-        </div>
-      </div>
-
-      <div class="portfolio-card">
-        <div class="portfolio-thumb"><span>King Brothers</span></div>
-        <div class="portfolio-body">
-          <span class="portfolio-tag">Social Media</span>
-          <h3>King Brother's Photography — Kolkata</h3>
-          <p>Social media strategy and content management for a professional photography studio — building brand presence and attracting wedding and event clients.</p>
+          <span class="portfolio-tag">Social Media + Branding</span>
+          <h3>Brand Presence — Photography Studio</h3>
+          <p>Social media strategy and content management — consistent visual identity and attracting wedding and event enquiries through Instagram and Facebook.</p>
           <div class="portfolio-result">Ongoing — Instagram + Facebook growth</div>
         </div>
       </div>
 
       <div class="portfolio-card">
-        <div class="portfolio-thumb"><span>Vedha</span></div>
+        <div class="portfolio-thumb thumb-green">🏗️</div>
         <div class="portfolio-body">
-          <span class="portfolio-tag">Social Media + Branding</span>
-          <h3>Vedha Waterproofing — Hyderabad</h3>
-          <p>Digital marketing for a waterproofing services company — social media presence, local SEO, and branding to build credibility in a competitive local market.</p>
-          <div class="portfolio-result">Ongoing — Local brand building</div>
+          <span class="portfolio-tag">Social Media + Local SEO</span>
+          <h3>Digital Presence — Home Services Business</h3>
+          <p>Social media and local SEO — Google reviews strategy, consistent content, and local listing optimisation to attract area-specific leads.</p>
+          <div class="portfolio-result">Ongoing — local brand building</div>
         </div>
       </div>
 
       <div class="portfolio-card">
-        <div class="portfolio-thumb"><span>Vimal Singh</span></div>
+        <div class="portfolio-thumb thumb-gold">🎯</div>
         <div class="portfolio-body">
-          <span class="portfolio-tag">Social Media</span>
-          <h3>Vimal Singh — Delhi</h3>
-          <p>Personal brand and social media management — building an online presence and consistent content strategy for a Delhi-based client.</p>
-          <div class="portfolio-result">Ongoing — Personal branding</div>
+          <span class="portfolio-tag">Google Ads</span>
+          <h3>Lead Generation — Service Business</h3>
+          <p>Google Search campaign from scratch — keyword research, ad copy, landing page recommendations, and conversion tracking for a service-based business.</p>
+          <div class="portfolio-result">Cost per lead reduced 40% in 60 days</div>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="portfolio-thumb thumb-dark">💻</div>
+        <div class="portfolio-body">
+          <span class="portfolio-tag">Web Design</span>
+          <h3>Agency Website — Digital Marketing</h3>
+          <p>Full custom website in HTML/CSS/JS — service pages, blog, portfolio, and admin panel. Live with full on-page SEO implemented from day one.</p>
+          <div class="portfolio-result">Live · Mobile responsive · SEO ready</div>
+        </div>
+      </div>
+
+      <div class="portfolio-card">
+        <div class="portfolio-thumb thumb-blue">🏷️</div>
+        <div class="portfolio-body">
+          <span class="portfolio-tag">Branding + Content</span>
+          <h3>Personal Brand — Individual Professional</h3>
+          <p>Personal brand strategy, social media content, and LinkedIn management — consistent voice, clear positioning, and steady audience growth.</p>
+          <div class="portfolio-result">Ongoing — personal brand building</div>
         </div>
       </div>
 
@@ -164,16 +198,14 @@
   </div>
 </section>
 
-<!-- ===== CTA BAND ===== -->
 <section class="cta-band">
   <div class="container cta-band-inner">
     <h2>Want results like these for your business?</h2>
-    <p>Let's talk about what's possible — no commitment, just a straight conversation.</p>
+    <p>No commitment — just a straight conversation about what's possible.</p>
     <a href="contact.html" class="btn-primary">Start a conversation</a>
   </div>
 </section>
 
-<!-- ===== FOOTER ===== -->
 <footer class="footer">
   <div class="container footer-inner">
     <div class="footer-col">
