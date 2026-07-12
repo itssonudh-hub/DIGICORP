@@ -268,3 +268,21 @@ img { max-width: 100%; display: block; }
   .section-title { font-size: 26px; }
   .footer-bottom { flex-direction: column; align-items: flex-start; }
 }
+
+/* ========== LUCIDE FALLBACK ========== */
+.footer-social a[aria-label="Facebook"] i::before { content: "f"; }
+.footer-social a[aria-label="Instagram"] i::before { content: "in"; }
+.footer-social a[aria-label="LinkedIn"] i::before { content: "li"; }
+
+/* Show placeholder text if icon doesn't load */
+[data-lucide]:empty::after {
+  content: "•";
+  font-size: 14px;
+  color: var(--purple);
+}
+
+/* Footer social always visible */
+.footer-social a {
+  min-width: 36px;
+  min-height: 36px;
+}
