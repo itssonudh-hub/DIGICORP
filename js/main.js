@@ -1,22 +1,37 @@
-// Lucide icons CDN load
-(function() {
+// Load Lucide icons from CDN
+function loadLucide() {
+  if (window.lucide) {
+    lucide.createIcons();
+    return;
+  }
   var s = document.createElement('script');
-  s.src = 'https://unpkg.com/lucide@latest/dist/umd/lucide.min.js';
-  s.onload = function() { if (window.lucide) lucide.createIcons(); };
+  s.src = 'https://unpkg.com/lucide@0.383.0/dist/umd/lucide.min.js';
+  s.onload = function() { 
+    if (window.lucide) lucide.createIcons(); 
+  };
+  // Fallback: jsDelivr CDN
+  s.onerror = function() {
+    var s2 = document.createElement('script');
+    s2.src = 'https://cdn.jsdelivr.net/npm/lucide@0.383.0/dist/umd/lucide.min.js';
+    s2.onload = function() { if (window.lucide) lucide.createIcons(); };
+    document.head.appendChild(s2);
+  };
   document.head.appendChild(s);
-})();
+}
 
 // Navbar scroll effect
 var navbar = document.getElementById('navbar');
-window.addEventListener('scroll', function() {
-  if (window.scrollY > 10) navbar.classList.add('scrolled');
-  else navbar.classList.remove('scrolled');
-});
+if (navbar) {
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 10) navbar.classList.add('scrolled');
+    else navbar.classList.remove('scrolled');
+  });
+}
 
 // Mobile menu
 var menuToggle = document.getElementById('menuToggle');
 var navLinks = document.getElementById('navLinks');
-if (menuToggle) {
+if (menuToggle && navLinks) {
   menuToggle.addEventListener('click', function() {
     navLinks.classList.toggle('open');
   });
@@ -34,10 +49,11 @@ document.querySelectorAll('.dropdown-toggle').forEach(function(toggle) {
 
 // Close menu on link click
 document.querySelectorAll('.nav-links a:not(.dropdown-toggle)').forEach(function(link) {
-  link.addEventListener('click', function() { navLinks.classList.remove('open'); });
+  link.addEventListener('click', function() { 
+    if (navLinks) navLinks.classList.remove('open'); 
+  });
 });
 
-// Init lucide if already loaded
-document.addEventListener('DOMContentLoaded', function() {
-  if (window.lucide) lucide.createIcons();
-});
+// Init
+document.addEventListener('DOMContentLoaded', loadLucide);
+if (document.readyState !== 'loading') loadLucide();
