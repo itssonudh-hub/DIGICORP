@@ -425,3 +425,143 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
   .stats-strip{grid-template-columns:1fr 1fr;}
   .trust-inner{grid-template-columns:1fr 1fr;}
 }
+
+/* ===== MOBILE FIXES ===== */
+@media(max-width:768px){
+  /* Hero */
+  .hero{min-height:auto;padding:90px 0 50px;}
+  .hero-title{font-size:40px;line-height:1.1;}
+  .hero-sub{font-size:15px;line-height:1.7;margin-bottom:24px;}
+  .hero-actions{gap:10px;}
+  .btn-talk-lg,.btn-outline-lg{padding:12px 22px;font-size:14px;}
+  .hero-trust{gap:12px;}
+  .trust-item{font-size:12px;}
+  .hero-tag{font-size:10px;padding:5px 13px;}
+
+  /* Section padding */
+  .section{padding:60px 0;}
+  .faq-section{padding:60px 0;}
+  .testi-section{padding:60px 0;}
+  .process-section{padding:60px 0;}
+  .industries-section{padding:60px 0;}
+  .svc-section{padding:60px 0;}
+  .why-section{padding:60px 0;}
+
+  /* Section header */
+  .section-header{margin-bottom:36px;}
+  .section-title{font-size:28px;line-height:1.2;}
+  .section-sub{font-size:14px;}
+  .page-hero-title{font-size:34px;}
+  .page-hero-sub{font-size:15px;}
+  .page-hero{padding:36px 0 56px;}
+
+  /* CTA band */
+  .cta-band{padding-bottom:70px;}
+  .cta-band-inner{padding:50px 24px 0;}
+  .cta-band h2{font-size:26px;}
+  .cta-band p{font-size:15px;}
+  .cta-btns{flex-direction:column;align-items:center;}
+  .cta-btns .btn-white,.cta-btns .btn-outline-white{width:100%;justify-content:center;}
+
+  /* Service rows */
+  .svc-row{gap:12px;padding:18px 0;}
+  .svc-name{font-size:15px;}
+  .svc-tags{display:none;}
+  .svc-num{min-width:22px;font-size:12px;}
+
+  /* Industries */
+  .industries-grid{grid-template-columns:repeat(2,1fr);gap:10px;}
+  .ind-card{padding:16px 10px;}
+  .ind-card h4{font-size:12px;}
+  .ind-card p{display:none;}
+  .ind-icon{margin-bottom:8px;}
+  .ind-icon svg{width:24px;height:24px;}
+
+  /* Process */
+  .process-step{padding:0 8px;}
+  .process-step h3{font-size:17px;}
+  .process-step p{font-size:13px;}
+  .process-num-wrap{width:52px;height:52px;}
+  .process-num{font-size:17px;}
+
+  /* Why */
+  .why-left .section-sub{font-size:14px;}
+  .why-list li{font-size:14px;}
+  .why-card h4{font-size:15px;}
+  .why-card p{font-size:13px;}
+  .why-card{padding:18px;}
+
+  /* Testimonials */
+  .testi-word{font-size:28px;}
+  .testi-quote{font-size:13px;}
+  .testi-card{padding:24px 20px;}
+
+  /* Trust strip */
+  .tstat-num{font-size:22px;}
+  .tstat-label{font-size:10px;}
+
+  /* Marquee */
+  .mq-item{font-size:16px;padding:0 20px;}
+
+  /* Portfolio */
+  .pf-body h3{font-size:16px;}
+  .pf-body p{font-size:13px;}
+
+  /* Blog */
+  .blog-body h3{font-size:16px;}
+  .blog-body p{font-size:13px;}
+
+  /* Contact */
+  .contact-form-box{padding:28px 20px;}
+  .contact-form-box h3{font-size:20px;}
+  .ci>div a,.ci>div span{font-size:14px;}
+
+  /* Footer */
+  .footer-col h4{font-size:13px;}
+  .footer-col a{font-size:13px;}
+  .footer-desc{font-size:13px;}
+
+  /* FAB positioning */
+  .fab-wa{bottom:78px;right:16px;width:48px;height:48px;}
+  .fab-top{bottom:136px;right:16px;width:38px;height:38px;}
+
+  /* Bottom nav */
+  .mob-bottom-nav{height:60px;}
+  .mbn-btn{font-size:9px;gap:2px;}
+  .mbn-btn svg{width:20px;height:20px;}
+  body{padding-bottom:60px;}
+}
+
+@media(max-width:380px){
+  .hero-title{font-size:34px;}
+  .page-hero-title{font-size:28px;}
+  .container{padding:0 16px;}
+  .btn-talk-lg,.btn-outline-lg{padding:11px 18px;font-size:13px;}
+  .industries-grid{grid-template-columns:repeat(2,1fr);}
+  .testi-word{font-size:24px;}
+  .section-title{font-size:24px;}
+}
+
+/* ===== SMOOTH SCROLL CURSOR ===== */
+html{scroll-behavior:smooth;}
+
+/* ===== IND CARD ICON FIX ===== */
+.ind-icon{width:52px;height:52px;background:var(--purple-pale);border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--purple);margin:0 auto 12px;}
+.ind-card:hover .ind-icon{background:var(--purple);color:white;}
+.ind-card:hover .ind-icon svg{stroke:white;}
+
+/* ===== TESTI QUOTE ===== */
+.testi-quote{font-size:14px;color:var(--brown-muted);line-height:1.65;margin-bottom:20px;font-style:italic;}
+.testi-dark .testi-quote{color:rgba(247,242,233,0.6);}
+
+/* ===== WHY SECTION BG ===== */
+.why-section{background:var(--cream-soft);}
+
+/* ===== SVC ROW HOVER SMOOTH ===== */
+.svc-row{transition:padding-left 0.22s ease, background 0.22s ease;}
+.svc-row:hover{background:rgba(91,45,142,0.03);border-radius:8px;}
+
+/* ===== DESKTOP INDUSTRIES ICON ===== */
+@media(min-width:769px){
+  .ind-card p{font-size:12px;color:var(--brown-muted);margin-top:4px;line-height:1.5;}
+}
