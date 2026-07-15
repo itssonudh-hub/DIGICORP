@@ -1,5 +1,66 @@
 document.addEventListener('DOMContentLoaded', function() {
 
+  // Custom smooth scroll (eased, accounts for fixed navbar height, respects reduced-motion)
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function easeInOutQuad(t) { return t < 0.5 ? 2*t*t : 1-Math.pow(-2*t+2,2)/2; }
+  function smoothScrollTo(targetY, duration) {
+    duration = duration || 650;
+    var startY = window.scrollY;
+    var diff = targetY - startY;
+    if (reduceMotion || !diff) { window.scrollTo(0, targetY); return; }
+    var startTime = null;
+    function step(ts) {
+      if (!startTime) startTime = ts;
+      var progress = Math.min((ts - startTime) / duration, 1);
+      window.scrollTo(0, startY + diff * easeInOutQuad(progress));
+      if (progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  function scrollToEl(el) {
+    var navEl = document.getElementById('navbar');
+    var offset = (navEl ? navEl.offsetHeight : 68) + 16;
+    var y = el.getBoundingClientRect().top + window.scrollY - offset;
+    smoothScrollTo(Math.max(y, 0));
+  }
+  // Wire up any in-page anchor links (e.g. href="#services") site-wide
+  document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      var id = a.getAttribute('href').slice(1);
+      var target = document.getElementById(id);
+      if (target) { e.preventDefault(); scrollToEl(target); history.pushState(null, '', '#' + id); }
+    });
+  });
+
+  // Digital Presence Snapshot (interactive self-audit)
+  var snapItems = document.querySelectorAll('.snap-item');
+  if (snapItems.length) {
+    var ringFill = document.getElementById('snapRingFill');
+    var scoreEl = document.getElementById('snapScore');
+    var verdictEl = document.getElementById('snapVerdict');
+    var circumference = 439.8;
+    function updateSnapshot() {
+      var total = 0;
+      snapItems.forEach(function(item) {
+        if (item.classList.contains('checked')) total += parseInt(item.getAttribute('data-points'), 10);
+      });
+      scoreEl.textContent = total;
+      var offset = circumference - (circumference * total / 100);
+      ringFill.style.strokeDashoffset = offset;
+      var msg;
+      if (total === 0) msg = "Tick what's already true for your business to see where you stand.";
+      else if (total <= 35) msg = "There's real room to grow here — most of the basics are still missing. That's actually the easiest stage to make fast progress from.";
+      else if (total <= 65) msg = "You've got a foundation in place, but a few gaps are likely costing you leads every month.";
+      else if (total <= 85) msg = "Solid presence overall. The gaps left are usually where the next real jump in results comes from.";
+      else msg = "Strong digital presence. At this stage it's about compounding what's already working, not fixing basics.";
+      verdictEl.textContent = msg;
+    }
+    snapItems.forEach(function(item) {
+      item.addEventListener('click', function() { item.classList.toggle('checked'); updateSnapshot(); });
+    });
+    updateSnapshot();
+  }
+
   // Preloader
   var pre = document.getElementById('preloader');
   if (pre) window.addEventListener('load', function() { setTimeout(function(){ pre.classList.add('hidden'); }, 1200); });
@@ -69,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var fabTop = document.getElementById('fabTop');
   if (fabTop) {
     window.addEventListener('scroll', function() { fabTop.classList.toggle('show', window.scrollY > 400); });
-    fabTop.addEventListener('click', function() { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+    fabTop.addEventListener('click', function() { smoothScrollTo(0, 550); });
   }
 
   // Exit popup
