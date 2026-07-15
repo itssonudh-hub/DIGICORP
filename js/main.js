@@ -1,284 +1,131 @@
-// ===== LUCIDE ICONS =====
-function loadLucide() {
-  if (window.lucide) { lucide.createIcons(); return; }
-  var s = document.createElement('script');
-  s.src = 'https://cdn.jsdelivr.net/npm/lucide@0.383.0/dist/umd/lucide.min.js';
-  s.onload = function() { if (window.lucide) lucide.createIcons(); };
-  s.onerror = function() {
-    var s2 = document.createElement('script');
-    s2.src = 'https://unpkg.com/lucide@0.383.0/dist/umd/lucide.min.js';
-    s2.onload = function() { if (window.lucide) lucide.createIcons(); };
-    document.head.appendChild(s2);
-  };
-  document.head.appendChild(s);
-}
+document.addEventListener('DOMContentLoaded', function() {
 
-// ===== PRELOADER =====
-function initPreloader() {
+  // Preloader
   var pre = document.getElementById('preloader');
-  if (!pre) return;
-  window.addEventListener('load', function() {
-    setTimeout(function() { pre.classList.add('hidden'); }, 1200);
-  });
-}
+  if (pre) window.addEventListener('load', function() { setTimeout(function(){ pre.classList.add('hidden'); }, 1200); });
 
-// ===== PROGRESS BAR =====
-function initProgressBar() {
+  // Progress bar
   var bar = document.getElementById('progress-bar');
-  if (!bar) return;
-  window.addEventListener('scroll', function() {
+  if (bar) window.addEventListener('scroll', function() {
     var h = document.documentElement.scrollHeight - window.innerHeight;
-    var p = h > 0 ? (window.scrollY / h) * 100 : 0;
-    bar.style.width = p + '%';
-  });
-}
-
-// ===== NAVBAR =====
-function initNavbar() {
-  var navbar = document.getElementById('navbar');
-  if (!navbar) return;
-  window.addEventListener('scroll', function() {
-    navbar.classList.toggle('scrolled', window.scrollY > 20);
-  });
-}
-
-// ===== MOBILE MENU =====
-function initMobileMenu() {
-  var toggle = document.getElementById('menuToggle');
-  var mobileNav = document.getElementById('mobileNav');
-  if (!toggle || !mobileNav) return;
-
-  toggle.addEventListener('click', function() {
-    toggle.classList.toggle('open');
-    mobileNav.classList.toggle('open');
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
   });
 
-  // Dropdown in mobile
-  var dToggle = document.getElementById('mobileDropToggle');
-  var dMenu = document.getElementById('mobileDropMenu');
-  if (dToggle && dMenu) {
-    dToggle.addEventListener('click', function() {
-      dMenu.classList.toggle('open');
-      dToggle.querySelector('.caret').textContent = dMenu.classList.contains('open') ? '▴' : '▾';
-    });
+  // Navbar scroll
+  var nav = document.getElementById('navbar');
+  if (nav) window.addEventListener('scroll', function() { nav.classList.toggle('scrolled', window.scrollY > 20); });
+
+  // Hamburger
+  var hbg = document.getElementById('hamburger');
+  var mob = document.getElementById('mobNav');
+  if (hbg && mob) {
+    hbg.addEventListener('click', function() { hbg.classList.toggle('open'); mob.classList.toggle('open'); });
   }
 
-  // Close on link click
-  mobileNav.querySelectorAll('a').forEach(function(a) {
-    a.addEventListener('click', function() {
-      toggle.classList.remove('open');
-      mobileNav.classList.remove('open');
-    });
-  });
-}
-
-// ===== ROTATING TEXT =====
-function initRotatingText() {
-  var el = document.getElementById('rotatingText');
-  if (!el) return;
-  var words = ['Instagram', 'Website', 'Brand', 'Business', 'Presence', 'Revenue'];
-  var i = 0;
-  el.textContent = words[0];
-  setInterval(function() {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(-10px)';
-    setTimeout(function() {
-      i = (i + 1) % words.length;
-      el.textContent = words[i];
-      el.style.opacity = '1';
-      el.style.transform = 'translateY(0)';
-    }, 300);
-  }, 2000);
-  el.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-}
-
-// ===== SCROLL REVEAL =====
-function initReveal() {
-  var els = document.querySelectorAll('.reveal');
-  if (!els.length) return;
-  var observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12 });
-  els.forEach(function(el) { observer.observe(el); });
-}
-
-// ===== COUNTER ANIMATION =====
-function animateCounter(el) {
-  var target = parseFloat(el.dataset.target);
-  var suffix = el.dataset.suffix || '';
-  var prefix = el.dataset.prefix || '';
-  var duration = 1800;
-  var start = performance.now();
-  function update(now) {
-    var elapsed = now - start;
-    var progress = Math.min(elapsed / duration, 1);
-    var ease = 1 - Math.pow(1 - progress, 3);
-    var val = target * ease;
-    el.textContent = prefix + (Number.isInteger(target) ? Math.floor(val) : val.toFixed(1)) + suffix;
-    if (progress < 1) requestAnimationFrame(update);
+  // Mobile dropdown
+  var dBtn = document.getElementById('mobDdBtn');
+  var dMenu = document.getElementById('mobSvcGrid');
+  if (dBtn && dMenu) {
+    dBtn.addEventListener('click', function() { dMenu.classList.toggle('open'); });
   }
-  requestAnimationFrame(update);
-}
 
-function initCounters() {
-  var counters = document.querySelectorAll('[data-target]');
-  if (!counters.length) return;
-  var observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        animateCounter(entry.target);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.5 });
-  counters.forEach(function(c) { observer.observe(c); });
-}
+  // Close mob nav on link
+  if (mob) mob.querySelectorAll('a').forEach(function(a) {
+    a.addEventListener('click', function() { if(hbg) hbg.classList.remove('open'); mob.classList.remove('open'); });
+  });
 
-// ===== FAQ TOGGLE =====
-function initFAQ() {
-  document.querySelectorAll('.faq-question').forEach(function(btn) {
+  // Rotating text
+  var rt = document.getElementById('rotatingText');
+  if (rt) {
+    var words = ['Business','Instagram','Website','Brand','Revenue','Presence'];
+    var idx = 0;
+    rt.style.transition = 'opacity 0.3s, transform 0.3s';
+    setInterval(function() {
+      rt.style.opacity = '0'; rt.style.transform = 'translateY(-8px)';
+      setTimeout(function() { idx = (idx+1) % words.length; rt.textContent = words[idx]; rt.style.opacity = '1'; rt.style.transform = 'translateY(0)'; }, 300);
+    }, 2200);
+  }
+
+  // Reveal on scroll
+  var revEls = document.querySelectorAll('.reveal');
+  if (revEls.length) {
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    revEls.forEach(function(el) { obs.observe(el); });
+  }
+
+  // FAQ
+  document.querySelectorAll('.faq-q').forEach(function(btn) {
     btn.addEventListener('click', function() {
       var item = btn.closest('.faq-item');
-      var isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item.open').forEach(function(o) { o.classList.remove('open'); });
-      if (!isOpen) item.classList.add('open');
+      var open = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(o){ o.classList.remove('open'); });
+      if (!open) item.classList.add('open');
     });
   });
-}
 
-// ===== BACK TO TOP =====
-function initFAB() {
+  // FAB top
   var fabTop = document.getElementById('fabTop');
-  if (!fabTop) return;
-  window.addEventListener('scroll', function() {
-    fabTop.classList.toggle('show', window.scrollY > 400);
-  });
-  fabTop.addEventListener('click', function() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-}
+  if (fabTop) {
+    window.addEventListener('scroll', function() { fabTop.classList.toggle('show', window.scrollY > 400); });
+    fabTop.addEventListener('click', function() { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+  }
 
-// ===== EXIT POPUP =====
-function initExitPopup() {
-  var popup = document.getElementById('exitPopup');
-  if (!popup) return;
-  if (sessionStorage.getItem('exitShown')) return;
-  var shown = false;
-  document.addEventListener('mouseleave', function(e) {
-    if (e.clientY < 10 && !shown) {
-      shown = true;
-      sessionStorage.setItem('exitShown', '1');
-      popup.classList.add('show');
-    }
-  });
-  var close = document.getElementById('exitClose');
-  if (close) close.addEventListener('click', function() { popup.classList.remove('show'); });
-  popup.addEventListener('click', function(e) { if (e.target === popup) popup.classList.remove('show'); });
-}
+  // Exit popup
+  var exitOv = document.getElementById('exitOverlay');
+  var exitCl = document.getElementById('exitClose');
+  if (exitOv && !sessionStorage.getItem('exitShown')) {
+    var shown = false;
+    document.addEventListener('mouseleave', function(e) {
+      if (e.clientY < 10 && !shown) { shown = true; sessionStorage.setItem('exitShown','1'); exitOv.classList.add('show'); }
+    });
+    if (exitCl) exitCl.addEventListener('click', function() { exitOv.classList.remove('show'); });
+    exitOv.addEventListener('click', function(e) { if(e.target===exitOv) exitOv.classList.remove('show'); });
+  }
 
-// ===== COOKIE BANNER =====
-function initCookie() {
-  var banner = document.getElementById('cookieBanner');
-  if (!banner) return;
-  if (localStorage.getItem('cookieAccepted')) { banner.classList.add('hidden'); return; }
-  var accept = document.getElementById('cookieAccept');
-  var decline = document.getElementById('cookieDecline');
-  if (accept) accept.addEventListener('click', function() {
-    localStorage.setItem('cookieAccepted', '1');
-    banner.classList.add('hidden');
-  });
-  if (decline) decline.addEventListener('click', function() { banner.classList.add('hidden'); });
-}
+  // Cookie
+  var cookieBar = document.getElementById('cookieBar');
+  if (cookieBar) {
+    if (localStorage.getItem('cookieOk')) { cookieBar.classList.add('hidden'); }
+    var ca = document.getElementById('cookieAccept');
+    var cd = document.getElementById('cookieDecline');
+    if (ca) ca.addEventListener('click', function() { localStorage.setItem('cookieOk','1'); cookieBar.classList.add('hidden'); });
+    if (cd) cd.addEventListener('click', function() { cookieBar.classList.add('hidden'); });
+  }
 
-// ===== CONTACT FORM =====
-function initContactForm() {
+  // Contact form
   var form = document.getElementById('contactForm');
-  if (!form) return;
+  if (form) {
+    var msgField = document.getElementById('msgField');
+    var charCount = document.getElementById('charCount');
+    if (msgField && charCount) msgField.addEventListener('input', function() { charCount.textContent = msgField.value.length + ' / 500'; });
 
-  // Char counter
-  var msg = document.getElementById('msgField');
-  var counter = document.getElementById('charCount');
-  if (msg && counter) {
-    msg.addEventListener('input', function() {
-      counter.textContent = msg.value.length + '/500 characters';
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      var valid = true;
+      form.querySelectorAll('.form-group').forEach(function(g) {
+        var inp = g.querySelector('input,textarea,select');
+        if (!inp) return;
+        g.classList.remove('error');
+        if (inp.required && !inp.value.trim()) { g.classList.add('error'); valid = false; }
+        if (inp.type==='email' && inp.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(inp.value)) { g.classList.add('error'); valid = false; }
+      });
+      if (!valid) return;
+      var btn = form.querySelector('.btn-talk-lg');
+      btn.textContent = 'Sending...'; btn.disabled = true;
+      fetch(form.action, { method:'POST', body: new FormData(form), headers:{'Accept':'application/json'} })
+        .then(function(r) {
+          if (r.ok) { form.style.display='none'; document.getElementById('formSuccess').style.display='block'; }
+          else { btn.textContent='Send message'; btn.disabled=false; }
+        }).catch(function() { btn.textContent='Send message'; btn.disabled=false; });
     });
   }
 
-  // Validation
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    var valid = true;
-
-    form.querySelectorAll('.form-group').forEach(function(g) {
-      var inp = g.querySelector('input,textarea,select');
-      if (!inp) return;
-      g.classList.remove('error');
-      if (inp.required && !inp.value.trim()) {
-        g.classList.add('error');
-        valid = false;
-      }
-      if (inp.type === 'email' && inp.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(inp.value)) {
-        g.classList.add('error');
-        valid = false;
-      }
-    });
-
-    if (!valid) return;
-
-    var btn = form.querySelector('.form-submit');
-    btn.textContent = 'Sending...';
-    btn.disabled = true;
-
-    fetch(form.action, {
-      method: 'POST',
-      body: new FormData(form),
-      headers: { 'Accept': 'application/json' }
-    }).then(function(r) {
-      if (r.ok) {
-        form.style.display = 'none';
-        document.getElementById('formSuccess').style.display = 'block';
-      } else {
-        btn.textContent = 'Send message';
-        btn.disabled = false;
-        alert('Something went wrong. Please try WhatsApp or email us directly.');
-      }
-    }).catch(function() {
-      btn.textContent = 'Send message';
-      btn.disabled = false;
-    });
+  // Mobile bottom nav active
+  var cur = window.location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.mbn-btn').forEach(function(b) {
+    if (b.getAttribute('href') === cur) b.classList.add('active');
   });
-}
 
-// ===== MOBILE BOTTOM NAV =====
-function initMobileBottomNav() {
-  var current = window.location.pathname.split('/').pop() || 'index.html';
-  document.querySelectorAll('.mobile-nav-btn').forEach(function(btn) {
-    if (btn.dataset.page === current) btn.classList.add('active');
-    btn.addEventListener('click', function() {
-      if (btn.dataset.href) window.location.href = btn.dataset.href;
-    });
-  });
-}
-
-// ===== INIT ALL =====
-document.addEventListener('DOMContentLoaded', function() {
-  initPreloader();
-  initProgressBar();
-  initNavbar();
-  initMobileMenu();
-  initRotatingText();
-  initReveal();
-  initCounters();
-  initFAQ();
-  initFAB();
-  initExitPopup();
-  initCookie();
-  initContactForm();
-  initMobileBottomNav();
-  loadLucide();
 });
