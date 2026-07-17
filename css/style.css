@@ -560,3 +560,19 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
   .page-hero-title{font-size:32px;}
   .page-hero-sub{max-width:100%;font-size:14px;}
 }
+
+/* ===== MOBILE OVERFLOW FIX ===== */
+@media(max-width:768px){
+  html,body{overflow-x:hidden;width:100%;}
+  .container{width:100%;padding:0 18px;margin:0 auto;}
+  .hero{overflow:hidden;width:100%;}
+  .hero-inner{width:100%;padding:0;}
+  .hero-bg{left:0;right:0;}
+  .navbar .nav-inner{padding:0 18px;}
+  .trust-strip .trust-inner{padding:0 18px;}
+  .marquee-wrap{overflow:hidden;}
+  .footer-top{padding:0 18px 32px;}
+  .footer-bottom{padding:16px 18px 72px;}
+  .bc-inner{padding:0 18px;}
+  .page-hero-inner{padding:0;}
+}
