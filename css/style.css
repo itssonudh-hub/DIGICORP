@@ -535,3 +535,28 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 .footer-hyd span{color:#5B2D8E;}
 .footer-legal a{color:rgba(42,29,20,0.4);}
 .footer-legal a:hover{color:#2A1D14;}
+
+/* ===== MOBILE ALIGNMENT FIX ===== */
+@media(max-width:768px){
+  .container{padding:0 20px;}
+  .hero-inner{padding:0;}
+  .hero-title{font-size:38px;line-height:1.1;word-break:break-word;}
+  .hero-sub{font-size:15px;max-width:100%;}
+  .hero-tag{font-size:10px;}
+  .hero-actions{flex-direction:column;align-items:flex-start;gap:10px;}
+  .btn-talk-lg{width:auto;display:inline-flex;}
+  .btn-outline-lg{display:none;}
+
+  /* Trust items wrap properly */
+  .hero-trust{flex-wrap:wrap;gap:10px 16px;}
+  .trust-item{font-size:12px;}
+
+  /* Section headers full width */
+  .section-header.center .section-sub{max-width:100%;}
+  .section-sub{max-width:100%;}
+
+  /* Page hero */
+  .page-hero-inner{max-width:100%;}
+  .page-hero-title{font-size:32px;}
+  .page-hero-sub{max-width:100%;font-size:14px;}
+}
