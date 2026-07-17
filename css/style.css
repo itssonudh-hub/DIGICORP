@@ -505,31 +505,33 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
   .mbn-btn svg{width:20px;height:20px;}
   body{padding-bottom:58px;}
   .cookie-bar{bottom:66px;}
-
-  /* ===== COOKIE-BAR / FAB LEFT-RIGHT OVERLAP FIX ===== */
-  /* Problem: cookie-bar was near full-width and centered, so its right edge
-     landed inside the fab-wa button's horizontal space (right:14px area).
-     Fix: anchor cookie-bar to the left with a fixed width that clears the
-     fab column on the right, instead of centering it edge-to-edge. */
-  .cookie-bar{
-    left:16px;
-    right:auto;
-    transform:none;
-    width:calc(100% - 90px);
-    max-width:480px;
-  }
-  .cookie-bar.hidden{
-    transform:translateY(20px);
-  }
 }
 
-/* Extra safety for very small phones (iPhone SE, older Android ~360px and below) */
-@media(max-width:380px){
-  .cookie-bar{
-    width:calc(100% - 76px);
-    padding:12px 14px;
-    gap:10px;
-  }
-  .cookie-bar p{font-size:12px;}
-  .cookie-btns{flex-direction:column;gap:6px;}
-}
+/* ===== FOOTER BACKGROUND FIX — CREAM ===== */
+.footer{background:#F0E8D5;padding-top:64px;}
+.footer-top{border-bottom:1px solid rgba(42,29,20,0.1);}
+
+/* Text colors for light background */
+.footer-brand .footer-logo span{color:#2A1D14;}
+.footer-desc{color:rgba(42,29,20,0.6);}
+
+/* Social icons */
+.footer-social a{background:rgba(42,29,20,0.06);border:1px solid rgba(42,29,20,0.1);}
+.footer-social a svg{stroke:rgba(42,29,20,0.6);}
+.footer-social a:hover{background:#5B2D8E;border-color:#5B2D8E;}
+.footer-social a:hover svg{stroke:#fff;}
+
+/* Column headings */
+.footer-col h4{color:#2A1D14;border-bottom:1px solid rgba(42,29,20,0.1);}
+
+/* Column links */
+.footer-col a{color:rgba(42,29,20,0.6);}
+.footer-col a svg{stroke:rgba(42,29,20,0.4);}
+.footer-col a:hover{color:#2A1D14;}
+
+/* Footer bottom */
+.footer-bottom{border-top:1px solid rgba(42,29,20,0.1);}
+.footer-bottom p{color:rgba(42,29,20,0.4);}
+.footer-hyd span{color:#5B2D8E;}
+.footer-legal a{color:rgba(42,29,20,0.4);}
+.footer-legal a:hover{color:#2A1D14;}
