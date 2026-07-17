@@ -576,3 +576,18 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
   .bc-inner{padding:0 18px;}
   .page-hero-inner{padding:0;}
 }
+
+/* ===== FINAL OVERFLOW FIX ===== */
+*{max-width:100%;}
+html{overflow-x:hidden;}
+body{overflow-x:hidden;position:relative;}
+.hero-bg{position:absolute;top:0;left:0;right:0;bottom:0;width:100%;overflow:hidden;}
+.hero-cards{display:none !important;}
+@media(max-width:768px){
+  *{box-sizing:border-box;}
+  .container{padding-left:18px !important;padding-right:18px !important;width:100% !important;max-width:100% !important;}
+  .nav-inner{padding-left:18px !important;padding-right:18px !important;}
+  .trust-inner{padding-left:18px !important;padding-right:18px !important;}
+  .hero-inner{width:100%;overflow:hidden;}
+  .marquee-track{width:max-content;}
+}
